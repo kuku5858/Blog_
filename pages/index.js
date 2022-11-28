@@ -1,13 +1,9 @@
-import Head from 'next/head'
-import { PostCard, Categories, PostWidget } from '../components/index'
+import Head from "next/head";
+import { PostCard, Categories, PostWidget } from "../components/index";
+import { FeaturedPosts } from "../sections/index";
 
-import { getPosts } from  '../services/index'
+import { getPosts } from "../services/index";
 
-// const posts = [
-//   { title: "React Testing", excerpt: "Learn React Testing" },
-//   { title: "NextJS and it's use", excerpt: "Learn NextJS" },
-//   { title: "Tailwind CSS", excerpt: "Learn Tailwind css" },
-// ];
 
 export default function Home({ posts }) {
   return (
@@ -16,6 +12,10 @@ export default function Home({ posts }) {
         <title>Blog</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      <div>
+        <FeaturedPosts />
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="lg:col-span-8 col-span-1">
@@ -26,15 +26,14 @@ export default function Home({ posts }) {
 
         <div className="lg:col-span-4 col-span-1">
           <div className="lg:sticky relative top-8">
-            <PostWidget/>
-            <Categories/>
+            <PostWidget />
+            <Categories />
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
-
 
 // Fetch data at build time
 export async function getStaticProps() {
@@ -44,4 +43,3 @@ export async function getStaticProps() {
     props: { posts },
   };
 }
-
