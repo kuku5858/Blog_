@@ -6,7 +6,8 @@ import { getCategories, getCategoryPost } from '../../services'
 
 const CategoryPost = ({posts}) => {
     const router = useRouter();
-
+    
+    //A loader if isFallback is true
     if(router.isFallback) {
         return <Loader />
     }

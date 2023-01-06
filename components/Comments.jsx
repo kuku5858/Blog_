@@ -13,7 +13,7 @@ const Comments = ({ slug }) => {
     });
   }, []);
 
-  console.log({ comments });
+  // console.log({ comments });
 
   return (
     <>
